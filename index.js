@@ -56,10 +56,10 @@ const config = {
   log: { access: '/dev/null', error: '/dev/null', loglevel: 'none' },
   inbounds: [
     { port: ARGO_PORT, protocol: 'vless', settings: { clients: [{ id: UUID, flow: 'xtls-rprx-vision' }], decryption: 'none', fallbacks: [{ dest: 8091 }, { path: "/vless512", dest: 8092 }, { path: "/vmess258", dest: 8093 }, { path: "/trojan258", dest: 8094 }] }, streamSettings: { network: 'tcp' } },
-    { port: 8001, listen: "127.0.0.1", protocol: "vless", settings: { clients: [{ id: UUID }], decryption: "none" }, streamSettings: { network: "ws", security: "none" } },
-    { port: 8002, listen: "127.0.0.1", protocol: "vless", settings: { clients: [{ id: UUID, level: 0 }], decryption: "none" }, streamSettings: { network: "ws", security: "none", wsSettings: { path: "/vless258" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
-    { port: 8003, listen: "127.0.0.1", protocol: "vmess", settings: { clients: [{ id: UUID, alterId: 0 }] }, streamSettings: { network: "ws", wsSettings: { path: "/vmess512" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
-    { port: 8004, listen: "127.0.0.1", protocol: "trojan", settings: { clients: [{ password: UUID }] }, streamSettings: { network: "ws", security: "none", wsSettings: { path: "/trojan512" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
+    { port: 8091, listen: "127.0.0.1", protocol: "vless", settings: { clients: [{ id: UUID }], decryption: "none" }, streamSettings: { network: "ws", security: "none" } },
+    { port: 8092, listen: "127.0.0.1", protocol: "vless", settings: { clients: [{ id: UUID, level: 0 }], decryption: "none" }, streamSettings: { network: "ws", security: "none", wsSettings: { path: "/vless258" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
+    { port: 8093, listen: "127.0.0.1", protocol: "vmess", settings: { clients: [{ id: UUID, alterId: 0 }] }, streamSettings: { network: "ws", wsSettings: { path: "/vmess512" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
+    { port: 8094, listen: "127.0.0.1", protocol: "trojan", settings: { clients: [{ password: UUID }] }, streamSettings: { network: "ws", security: "none", wsSettings: { path: "/trojan512" } }, sniffing: { disable: false, destOverride: ["http", "tls", "quic"], metadataOnly: false } },
   ],
   dns: { servers: ["https+local://8.8.8.8/dns-query"] },
   outbounds: [
